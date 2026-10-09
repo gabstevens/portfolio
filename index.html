@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gabriele Stefani — Front-End Engineer</title>
+  <meta name="description" content="Front-End Engineer building web foundations, interactive systems, and thoughtful user experiences." />
+  <meta name="theme-color" content="#0c0e12" />
+  <link rel="canonical" href="https://gabstevens.dev/" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0e12'/><rect x='6' y='6' width='8' height='8' fill='%2310b981'/></svg>" />
+
+  <!-- Open Graph / Social Graph Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://gabstevens.dev/" />
+  <meta property="og:title" content="Gabriele Stefani — Front-End Engineer" />
+  <meta property="og:description" content="Front-End Engineer building web foundations, interactive systems, and thoughtful user experiences." />
+  <meta property="og:image" content="https://gabstevens.dev/og-image.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Technical schematic portrait of Gabriele Stefani" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Gabriele Stefani — Front-End Engineer" />
+  <meta name="twitter:description" content="Front-End Engineer building web foundations, interactive systems, and thoughtful user experiences." />
+  <meta name="twitter:image" content="https://gabstevens.dev/og-image.jpg" />
+  <meta name="twitter:image:alt" content="Technical schematic portrait of Gabriele Stefani" />
+  
+  <!-- Self-Hosted Critical Variable Fonts Preload (Instant First Paint, Zero FOUT) -->
+  <link rel="preload" href="/fonts/geist-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/geist-mono-variable.woff2" as="font" type="font/woff2" crossorigin>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(r) {
+        r.forEach(function(reg) { reg.unregister(); });
+      });
+    }
+  </script>
+
+  <link rel="stylesheet" href="/src/styles/main.scss" />
+</head>
+<body>
+  <!-- RUNNING FOLIO MASTHEAD -->
+  <header id="masthead" class="masthead">
+    <div class="masthead__inner">
+      <div class="masthead__identity">
+        <span class="mono-label">GABRIELE STEFANI // 2026</span>
+        <span class="mono-divider">//</span>
+        <span class="mono-label">LONDON, UK</span>
+      </div>
+
+      <div class="masthead__telemetry mono-label">
+        <span data-clock="local">LOCAL: --:--:--</span>
+        <span class="bullet-sep local-sep">•</span>
+        <span data-clock="london">LONDON: --:--:--</span>
+        <span class="bullet-sep epoch-sep">•</span>
+        <span data-clock="epoch">EPOCH: ----------</span>
+        <span class="bullet-sep">•</span>
+        <span data-telemetry="edge">EDGE: DETECTING</span>
+      </div>
+
+      <div class="masthead__status mono-label">
+        <div class="masthead__status-indicator">
+          <span class="status-indicator"></span>
+          <span class="status-text-full">STATUS: ACTIVE // OPEN TO COLLABORATION</span>
+          <span class="status-text-mobile">STATUS: ACTIVE</span>
+        </div>
+        <button type="button" class="inspect-trigger masthead__inspect-btn" id="masthead-inspect-btn" aria-label="Toggle diagnostic inspector" aria-pressed="false">[ ⌘ INSPECT ]</button>
+      </div>
+    </div>
+  </header>
+  <script>
+    (function(){
+      try {
+        var now = new Date();
+        var lon = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/London', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZoneName: 'short' }).format(now);
+        var loc = new Intl.DateTimeFormat(undefined, { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZoneName: 'short' }).format(now);
+        var elLon = document.querySelector('[data-clock="london"]');
+        var elLoc = document.querySelector('[data-clock="local"]');
+        var elEpoch = document.querySelector('[data-clock="epoch"]');
+        var elSep = document.querySelector('.local-sep');
+        if (elLon) elLon.textContent = 'LONDON: ' + lon;
+        if (elEpoch) elEpoch.textContent = 'EPOCH: ' + Math.floor(now.getTime() / 1000);
+        if (elLoc) {
+          if (loc === lon) {
+            elLoc.style.display = 'none';
+            if (elSep) elSep.style.display = 'none';
+          } else {
+            elLoc.textContent = 'LOCAL: ' + loc;
+          }
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!-- MAIN DOCUMENT CONTAINER -->
+  <main id="main-content" class="container">
+    <!-- HERO STATEMENT -->
+    <section id="hero" class="hero-section">
+      <h1 class="hero__headline">
+        Front-End Engineer building web foundations, interactive systems, and thoughtful user experiences.
+      </h1>
+      <div class="hero__lead">
+        <p>
+          I work in engineering at Amazon <a href="https://brandinnovationlab.amazon/" target="_blank" rel="noopener noreferrer">Brand Innovation Lab</a>, building the foundational tools and architecture our teams use to deliver flagship interactive campaigns.
+        </p>
+        <p>
+          My core competency is frontend systems, browser runtimes, and building software with a relentless focus on the user experience. Beyond the web, I consider myself a builder first: deeply curious about engineering across disciplines, whether that means prototyping physical devices, exploring new computing paradigms, or building tools from the ground up.
+        </p>
+        <p>
+          Always open to good technical discussions, open-source work, and unexpected side ventures.
+        </p>
+      </div>
+    </section>
+
+    <!-- 01 // SELECTED ARTIFACTS -->
+    <section id="artifacts" class="editorial-grid section-divider">
+      <aside class="grid-gutter">
+        <div class="sticky-marker mono-label">[01] // ARTIFACTS</div>
+      </aside>
+      <div class="grid-content">
+        <article class="ledger-row" id="product-selector">
+          <div class="ledger-row__header">
+            <span class="mono-label">01 // PRODUCT SELECTOR // GUIDED COMMERCE ENGINE</span>
+            <span class="mono-label text-muted">2024 – PRESENT</span>
+          </div>
+          <div class="ledger-row__meta mono-label text-muted">ROLE: FRONT-END ARCHITECTURE // AMAZON BRAND INNOVATION LAB</div>
+          <div class="ledger-row__body">
+            <div class="spec-row">
+              <span class="spec-label mono-label">PROBLEM:</span>
+              <span class="spec-value">Brand Stores lacked an interactive guided-selling mechanism for complex product catalogs. Advertisers needed a self-service, branching recommendation quiz that could run embedded inside third-party storefronts without custom engineering overhead.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">ARCHITECTURE:</span>
+              <span class="spec-value">Built in React with a deterministic client-side recommendation engine and dynamic branching logic. Engineered to execute seamlessly across Amazon’s web, mobile, and in-app webview runtimes under strict bundle-size and latency budgets. Zero third-party dependencies, built entirely with human-authored client logic.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">OUTCOME:</span>
+              <span class="spec-value">Adopted as one of Amazon Brand Stores' flagship interactive self-service widgets; deployed globally across high-traffic brand storefronts.</span>
+            </div>
+          </div>
+          <div class="ledger-row__footer mono-label">
+            <span class="text-muted">[ SYSTEM // PROPRIETARY ENTERPRISE SYSTEM ]</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 02 // CAPABILITY DOMAINS -->
+    <section id="capabilities" class="editorial-grid section-divider">
+      <aside class="grid-gutter">
+        <div class="sticky-marker mono-label">[02] // CAPABILITIES</div>
+      </aside>
+      <div class="grid-content">
+        <article class="ledger-row">
+          <div class="ledger-row__header">
+            <span class="mono-label">01 // CLIENT ARCHITECTURE &amp; FRONTEND</span>
+          </div>
+          <div class="ledger-row__body">
+            <div class="spec-row">
+              <span class="spec-label mono-label">FOCUS:</span>
+              <span class="spec-value">Fast, accessible web applications and platform tooling with zero unnecessary bloat.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">CORE STACK:</span>
+              <span class="spec-value">TypeScript, modern JavaScript, React, semantic HTML5, modular SCSS/CSS Grid.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">SPECIALTIES:</span>
+              <span class="spec-value">DOM performance, state architecture, component libraries, web accessibility, bundle size budgeting, cross-browser quirks.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">APPROACH:</span>
+              <span class="spec-value">User experience comes first. Measure latency, avoid runtime bloat, and keep interactions snappy.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="ledger-row">
+          <div class="ledger-row__header">
+            <span class="mono-label">02 // SYSTEMS &amp; HARDWARE TINKERING</span>
+          </div>
+          <div class="ledger-row__body">
+            <div class="spec-row">
+              <span class="spec-label mono-label">FOCUS:</span>
+              <span class="spec-value">Practical curiosity beyond browser tabs.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">ENVIRONMENTS:</span>
+              <span class="spec-value">Linux environments, Docker containers, local networking, reverse proxies.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">HARDWARE:</span>
+              <span class="spec-value">Microcontrollers (ESP32, Raspberry Pi), sensor telemetry, serial communication, and hardware prototyping.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">APPROACH:</span>
+              <span class="spec-value">Understanding how the whole machine works—from protocols and operating system layers down to physical components.</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="ledger-row">
+          <div class="ledger-row__header">
+            <span class="mono-label">03 // AI FLUENCY &amp; MODERN WORKFLOW</span>
+          </div>
+          <div class="ledger-row__body">
+            <div class="spec-row">
+              <span class="spec-label mono-label">FOCUS:</span>
+              <span class="spec-value">Pragmatic leverage without relying on unvetted generated code.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">WORKFLOWS:</span>
+              <span class="spec-value">Agentic coding environments for fast scaffolding, automated test generation, and local models for private workflows.</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label mono-label">APPROACH:</span>
+              <span class="spec-value">Use AI to cut through repetitive boilerplate, but keep architectural decisions, edge cases, and code quality strictly human-directed.</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 03 // DIRECT CHANNELS & COLOPHON -->
+    <section id="channels" class="editorial-grid section-divider">
+      <aside class="grid-gutter">
+        <div class="sticky-marker mono-label">[03] // DIRECT CHANNELS</div>
+      </aside>
+      <div class="grid-content">
+        <div class="channels-block">
+          <ul class="channels-list mono-label">
+            <li><a href="https://github.com/gabstevens" target="_blank" rel="noopener noreferrer">[ GITHUB ]</a></li>
+            <li><a href="https://www.linkedin.com/in/gabrielestefani" target="_blank" rel="noopener noreferrer">[ LINKEDIN ]</a></li>
+          </ul>
+        </div>
+
+        <div class="colophon-block section-divider-subtle">
+          <div class="colophon-header mono-label">
+            <span class="colophon-title">COLOPHON &amp; ARCHITECTURAL PROVENANCE</span>
+            <span class="colophon-index">[ PLATE 00 ]</span>
+          </div>
+
+          <div class="colophon-body">
+            <figure class="colophon-plate" id="schematic-plate">
+              <div class="plate-viewport">
+                <img src="/images/avatar.jpg" alt="Technical schematic portrait of Gabriele Stefani" width="140" height="140" loading="lazy" decoding="async" class="plate-image" />
+                <div class="plate-reticle plate-reticle--tl">+</div>
+                <div class="plate-reticle plate-reticle--tr">+</div>
+                <div class="plate-reticle plate-reticle--bl">+</div>
+                <div class="plate-reticle plate-reticle--br">+</div>
+                <div class="plate-scanline" aria-hidden="true"></div>
+              </div>
+              <figcaption class="plate-caption mono-label">
+                <div class="plate-caption__title">FIG. 00 // OPERATOR</div>
+                <div class="plate-caption__meta">CAD // 1024×1024 [01 // DEV]</div>
+              </figcaption>
+            </figure>
+
+            <div class="colophon-specs mono-label">
+              <div>TYPEFACES: GEIST (GROTESK) &amp; GEIST MONO</div>
+              <div>RUNTIME: ZERO-FRAMEWORK STATIC VITE + TS + SCSS</div>
+              <div>HOSTING: STATIC EDGE DISTRIBUTION</div>
+              <div>SOURCE: <a href="https://github.com/gabstevens/portfolio" target="_blank" rel="noopener noreferrer">[ REPOSITORY ]</a></div>
+              <div>DIAGNOSTICS: TOGGLE VIA <button type="button" class="inspect-trigger" id="inspect-button" aria-label="Toggle diagnostic inspector" aria-pressed="false">[ ⌘ INSPECT ]</button> OR SHORTCUT CMD+I</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- DIAGNOSTIC INSPECTOR HUD -->
+  <aside id="inspector-hud" class="inspector-hud mono-label" aria-hidden="true">
+    <div class="hud-header">
+      <span class="hud-title">DIAGNOSTICS</span>
+      <button type="button" class="hud-close-btn" id="hud-close-btn" aria-label="Close diagnostic inspector">[ ✕ CLOSE ]</button>
+    </div>
+    <div class="hud-metrics">
+      <div class="hud-metric"><span>STATUS:</span> <span class="hud-status-val"><span class="status-indicator"></span>ACTIVE</span></div>
+      <div class="hud-metric"><span>TARGET:</span> <span id="hud-target-elem" class="hud-target-val">&lt;HOVER / TAP&gt;</span></div>
+      <div class="hud-metric"><span>OPERATOR:</span> <button type="button" class="hud-schematic-toggle" id="hud-schematic-btn" aria-expanded="false" title="Toggle operator schematic overlay">[ GS-2026 // FIG.00 ]</button></div>
+      <div class="hud-metric"><span>DOM NODES:</span> <span id="hud-dom-count">0</span></div>
+      <div class="hud-metric"><span>RENDER TIME:</span> <span id="hud-render-time">0ms</span></div>
+      <div class="hud-metric"><span>VIEWPORT:</span> <span id="hud-viewport">0x0</span></div>
+      <div class="hud-metric"><span>THEME:</span> <span>TECHNICAL SWISS</span></div>
+    </div>
+    <div class="hud-schematic-drawer" id="hud-schematic-drawer" aria-hidden="true">
+      <div class="hud-schematic-preview">
+        <img src="/images/avatar.jpg" alt="Operator schematic preview" width="220" height="220" loading="lazy" />
+        <div class="hud-schematic-radar" aria-hidden="true"></div>
+        <div class="hud-schematic-crosshairs">+</div>
+      </div>
+      <div class="hud-schematic-info">
+        <div>COORDS: 51.5074° N, 0.1278° W</div>
+        <div>SPEC: ORTHOGRAPHIC DEV CAD</div>
+        <div>STATUS: ACTIVE // DEPLOYED</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- INSPECTOR HOVER TOOLTIP -->
+  <div id="inspector-tooltip" class="inspector-tooltip mono-label" aria-hidden="true"></div>
+
+  <script type="module" src="/src/ts/main.ts"></script>
+</body>
+</html>

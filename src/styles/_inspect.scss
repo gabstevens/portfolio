@@ -1,0 +1,300 @@
+body.inspect-active {
+  /* Wireframe every semantic container and section except HUD and tooltip descendants */
+  main,
+  header,
+  footer,
+  section,
+  aside:not(#inspector-hud),
+  article,
+  div:not(#inspector-hud *):not(#inspector-tooltip *) {
+    outline: 1px dashed var(--accent-inspect) !important;
+    outline-offset: -1px;
+  }
+
+  /* Structural columns display faint guidelines */
+  .editorial-grid {
+    background-image: linear-gradient(
+      to right,
+      rgba(56, 189, 248, 0.05) 1px,
+      transparent 1px
+    );
+    background-size: 28% 100%;
+  }
+
+  /* Display the HUD */
+  .inspector-hud {
+    display: flex;
+  }
+
+  /* Highlight inspect buttons in active inspect mode */
+  .inspect-trigger {
+    border-color: var(--accent-inspect) !important;
+    color: var(--accent-inspect) !important;
+    background: rgba(56, 189, 248, 0.08) !important;
+
+    &:hover {
+      background: var(--accent-inspect) !important;
+      color: #000 !important;
+    }
+  }
+
+  .colophon-plate {
+    .plate-viewport {
+      border-color: var(--accent-inspect) !important;
+    }
+
+    .plate-reticle {
+      color: var(--accent-inspect) !important;
+    }
+
+    .plate-scanline {
+      display: block;
+    }
+
+    .plate-caption__title {
+      color: var(--accent-inspect) !important;
+    }
+  }
+}
+
+/* Strictly prevent outlines on HUD, tooltip, and all their children */
+#inspector-hud,
+#inspector-hud *,
+#inspector-tooltip,
+#inspector-tooltip *,
+.inspect-trigger,
+.colophon-plate,
+.colophon-plate * {
+  outline: none !important;
+}
+
+.inspector-hud {
+  display: none;
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 250px;
+  max-width: calc(100vw - 2rem);
+  background: var(--bg-surface);
+  border: 1px solid var(--accent-inspect);
+  padding: 0.75rem 0.875rem;
+  flex-direction: column;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  z-index: 9999;
+  box-shadow: none !important;
+  box-sizing: border-box;
+
+  .hud-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
+    gap: 0.5rem;
+    white-space: nowrap;
+    width: 100%;
+    box-sizing: border-box;
+    line-height: 1;
+  }
+
+  .hud-title {
+    color: var(--accent-inspect);
+    font-weight: 500;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .hud-close-btn {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    background: transparent;
+    border: 1px solid var(--accent-inspect);
+    color: var(--accent-inspect);
+    cursor: pointer;
+    line-height: 1;
+    margin: 0;
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    transition: background-color 100ms linear, color 100ms linear;
+
+    &:hover {
+      background: var(--accent-inspect);
+      color: #000;
+    }
+  }
+
+  .hud-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .hud-metric {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    color: var(--text-muted);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+
+    span:last-child {
+      color: var(--text-display);
+      font-weight: 500;
+    }
+  }
+
+  .hud-status-val {
+    color: var(--accent-active) !important;
+    display: inline-flex;
+    align-items: center;
+
+    .status-indicator {
+      margin-right: 0.35rem;
+      width: 5px;
+      height: 5px;
+    }
+  }
+
+  .hud-target-val {
+    color: var(--accent-inspect) !important;
+    font-weight: 500;
+    max-width: 140px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: right;
+  }
+
+  .hud-schematic-toggle {
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.04em;
+    padding: 1px 4px;
+    background: transparent;
+    border: 1px solid var(--accent-inspect);
+    color: var(--accent-inspect);
+    cursor: pointer;
+    line-height: 1.2;
+    transition: background-color 100ms linear, color 100ms linear;
+
+    &:hover {
+      background: var(--accent-inspect);
+      color: #000;
+    }
+  }
+
+  .hud-schematic-drawer {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.625rem;
+    padding-top: 0.625rem;
+    border-top: 1px dashed rgba(56, 189, 248, 0.3);
+
+    &.is-open {
+      display: flex;
+    }
+  }
+
+  .hud-schematic-preview {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    background: var(--bg-canvas);
+    border: 1px solid var(--accent-inspect);
+    overflow: hidden;
+    box-sizing: border-box;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: contrast(1.1) brightness(0.9);
+    }
+  }
+
+  .hud-schematic-radar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-inspect);
+    animation: radar-sweep 2.2s linear infinite;
+  }
+
+  .hud-schematic-crosshairs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(56, 189, 248, 0.4);
+    font-size: 1.25rem;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .hud-schematic-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    font-size: 0.5625rem;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+
+    div:first-child {
+      color: var(--accent-inspect);
+    }
+  }
+
+  @media (max-width: 839px) {
+    bottom: 1.25rem;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 2.5rem);
+    max-width: 320px;
+  }
+}
+
+@keyframes radar-sweep {
+  0% { transform: translateY(0); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(140px); opacity: 0; }
+}
+
+.inspector-tooltip {
+  display: none;
+  position: absolute;
+  background: var(--accent-inspect);
+  color: #000;
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  pointer-events: none;
+  z-index: 10000;
+  white-space: nowrap;
+  box-shadow: none !important;
+
+  @media (hover: none) {
+    display: none !important;
+  }
+}

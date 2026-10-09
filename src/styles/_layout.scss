@@ -1,0 +1,238 @@
+/* Running Folio Masthead */
+.masthead {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--bg-canvas);
+  border-bottom: var(--hairline);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+
+  &__inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0.75rem var(--gutter-desktop);
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 1rem;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  &__identity {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    color: var(--text-display);
+    font-size: 0.6875rem;
+    justify-self: start;
+    gap: 0.35rem;
+  }
+
+  &__telemetry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+    color: var(--text-muted);
+    font-size: 0.6875rem;
+    justify-self: center;
+  }
+
+  &__status {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    white-space: nowrap;
+    color: var(--text-body);
+    font-size: 0.6875rem;
+    justify-self: end;
+  }
+
+  &__status-indicator {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+
+  &__inspect-btn {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    background: transparent;
+    border: 1px solid var(--border-subtle);
+    color: var(--text-muted);
+    cursor: pointer;
+    line-height: 1.2;
+    white-space: nowrap;
+    transition: all 0.1s linear;
+
+    &:hover {
+      background: var(--bg-hover);
+      border-color: var(--border-primary);
+      color: var(--text-display);
+    }
+  }
+
+  .status-text-mobile {
+    display: none;
+  }
+
+  /* When viewport is between 840px and 1250px, collapse the epoch counter to preserve generous centering */
+  @media (max-width: 1250px) and (min-width: 840px) {
+    [data-clock="epoch"],
+    .epoch-sep {
+      display: none !important;
+    }
+  }
+
+  @media (max-width: 839px) {
+    &__inner {
+      padding: 0.75rem var(--gutter-mobile);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+      white-space: normal;
+    }
+
+    &__identity {
+      font-size: 0.6875rem;
+      white-space: nowrap;
+      justify-self: auto;
+      width: 100%;
+    }
+
+    &__telemetry {
+      font-size: 0.6875rem;
+      white-space: nowrap;
+      justify-content: flex-start;
+      text-align: left;
+      width: 100%;
+    }
+
+    [data-clock="epoch"],
+    .epoch-sep,
+    [data-clock="local"],
+    .local-sep {
+      display: none !important;
+    }
+
+    .status-text-full {
+      display: none;
+    }
+
+    .status-text-mobile {
+      display: inline;
+    }
+
+    &__status {
+      font-size: 0.6875rem;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: nowrap;
+      justify-self: auto;
+    }
+
+    &__inspect-btn {
+      font-size: 0.6875rem;
+      padding: 2px 6px;
+    }
+  }
+}
+
+/* Global Container Bounds */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--gutter-desktop);
+
+  @media (max-width: 839px) {
+    padding: 0 var(--gutter-mobile);
+  }
+}
+
+/* Hero Section */
+.hero-section {
+  padding: 6rem 0 5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+
+  @media (max-width: 839px) {
+    padding: 3.5rem 0 3rem 0;
+    gap: 1.75rem;
+  }
+
+  .hero__lead {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 820px;
+  }
+}
+
+/* Section Delineators */
+.section-divider {
+  border-top: var(--hairline);
+}
+
+.section-divider-subtle {
+  border-top: var(--hairline-subtle);
+}
+
+/* Asymmetric Two-Column Editorial Grid */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: 28% 72%;
+  gap: 2rem;
+  padding: 4.5rem 0;
+
+  .grid-gutter {
+    position: relative;
+
+    .sticky-marker {
+      position: sticky;
+      top: 3.75rem;
+      display: inline-block;
+    }
+  }
+
+  .grid-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  @media (max-width: 839px) {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 3rem 0;
+
+    .grid-gutter {
+      border-bottom: var(--hairline-subtle);
+      padding-bottom: 0.75rem;
+
+      .sticky-marker {
+        position: static;
+      }
+    }
+
+    .grid-content {
+      gap: 2.25rem;
+    }
+  }
+}

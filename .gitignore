@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Production build artifacts
+dist/
+
+# Cloudflare / Wrangler local data
+.wrangler/
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Environment variables & local configuration
+.env
+.env.local
+.env.*.local
+
+# Editor & IDE artifacts
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
