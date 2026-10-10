@@ -3,7 +3,7 @@
  * Zero-dependency Vanilla Service Worker
  */
 
-const CACHE_VERSION = 'folio-v1';
+const CACHE_VERSION = 'folio-v2';
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const ACTIVE_CACHES = new Set([SHELL_CACHE, STATIC_CACHE]);
