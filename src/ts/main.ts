@@ -1,8 +1,10 @@
 import { initClocks } from './clock';
 import { detectEdgeLocation, getPerformanceMetrics } from './telemetry';
 import { initInspector } from './inspector';
+import { initPwa } from './pwa';
 
 async function bootstrap(): Promise<void> {
+  initPwa();
   initClocks();
   initInspector();
 
